@@ -1,0 +1,59 @@
+Adders:
+Half Adder
+Full Adder
+Ripple Carry Adder
+Carry Look Ahead adder
+
+Subtractors:
+Half Subtractor
+Full Subtractor
+Adder-Subtractor 
+
+MUX and DEMUX
+
+Encoders and Decoders
+Decimal to Binary Encoder
+Priority encoder
+Decoder with active low output and enable
+bcd to 7 segment display
+
+
+Flip-Flops and Latches:
+SR
+D
+JK
+T
+with Asynchronous inputs
+
+Registers:
+SISO
+SIPO
+PISO
+PIPO
+Bidirectional
+
+Counters:
+Asynchronous Counter
+	- up counter
+	- down counter
+	- up-down counter
+Synchronous Counter
+	- up counter
+	- down counter
+	- up-down counter
+MOD Counter
+Ring counter
+Johnson counter
+
+FSM:
+Sequence Detector 101: Mealy and Moore (both overlapping and non-overlapping)
+Sequence Detector 1010: Mealy and Moore (both overlapping and non-overlapping)
+Vending Machine
+
+Memory:
+SRAM
+DRAM
+Instruction Memory
+Register File
+Data Memory
+
