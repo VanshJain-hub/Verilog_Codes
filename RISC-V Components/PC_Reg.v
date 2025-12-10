@@ -13,8 +13,8 @@ module PC_Reg(
     
 
 
-always@(posedge clk or posedge reset) begin
-    if(reset) begin
+always@(posedge clk or negedge reset) begin
+    if(!reset) begin
         PC <= 0;
     end
     else begin

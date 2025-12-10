@@ -11,7 +11,7 @@ module datapath(
     output [31:0] WD, ALUResult
 );
 
-    wire [31:0] PCPlus4, PCTarget, ImmExt;
+    wire [31:0] PCPlus4, PCTarget, ImmExt, PC_Next;
     wire [31:0] RD1, RD2;
     wire [31:0] B;
     wire [31:0] Result;
@@ -51,7 +51,5 @@ module datapath(
     //ResultMux
     Result_Mux RM(.ALUResult(ALUResult), .ReadData(RD), .PC_Plus_4(PCPlus4), .ResultSrc(ResultSrc), .Result(Result));
 
-
-    
 
 endmodule
