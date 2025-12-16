@@ -8,7 +8,8 @@ module datapath(
     output Zero,
     output Overflow, Carry, Negative,
     output [31:0] PC,
-    output [31:0] WD, ALUResult
+    output [31:0] WD, ALUResult,
+    output [31:0] display_data 
 );
 
     wire [31:0] PCPlus4, PCTarget, ImmExt, PC_Next;
@@ -40,7 +41,8 @@ module datapath(
     assign WD = RD2;
 
     //Register File: (WD3 is the ResultMux output, which is 'Result')
-    Register_File RF(.RA1(Instr[19:15]), .RA2(Instr[24:20]), .WA3(Instr[11:7]), .WD3(Result), .WE3(RegWrite), .CLK(clk), .RD1(RD1), .RD2(RD2));
+    Register_File RF(.RA1(Instr[19:15]), .RA2(Instr[24:20]), .WA3(Instr[11:7]), .WD3(Result), .WE3(RegWrite), .CLK(clk), 
+    .RD1(RD1), .RD2(RD2), .display_data(display_data));
 
     //ALU_Mux
     ALU_Mux ALM(.WD(RD2), .ImmExt(ImmExt), .ALUSrc(ALUSrc), .B(B));

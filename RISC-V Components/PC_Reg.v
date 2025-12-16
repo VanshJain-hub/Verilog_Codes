@@ -6,10 +6,10 @@ module PC_Reg(
 );
     reg signed [3:0] num;
 
-    initial begin
-        num = -2;
-        $display("NUM = %d", num);
-    end
+    // initial begin
+    //     num = -2;
+    //     $display("NUM = %d", num);
+    // end
     
 
 

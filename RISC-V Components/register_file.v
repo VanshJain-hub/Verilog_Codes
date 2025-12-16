@@ -6,7 +6,8 @@ module Register_File (
     input         WE3,  
     input         CLK,  
     output [31:0] RD1,  
-    output [31:0] RD2   
+    output [31:0] RD2,
+    output [31:0] display_data 
 );
 
     reg [31:0] regfile [0:31]; 
@@ -24,5 +25,5 @@ module Register_File (
         if (WE3 && WA3!=0)
             regfile[WA3] <= WD3;
     end
-
+    assign display_data = regfile[4];
 endmodule
