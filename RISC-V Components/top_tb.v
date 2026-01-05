@@ -1,7 +1,8 @@
 module top_tb;
     reg clk, reset;
-
-    top_module DUT(.clk(clk), .reset(reset));
+    wire [31:0] display_data;
+    
+    top_module DUT(.clk(clk), .reset(reset), .display_data(display_data));
 
     //initializing the clock
     always begin
@@ -10,9 +11,9 @@ module top_tb;
 
     initial begin
         clk = 0;
-        reset = 0;
-        #20;
         reset = 1;
+        #20;
+        reset = 0;
 
         #1000 $finish;
     end
