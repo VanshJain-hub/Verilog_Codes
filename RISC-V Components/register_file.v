@@ -7,7 +7,7 @@ module Register_File (
     input         CLK,  
     output [31:0] RD1,  
     output [31:0] RD2,
-    output [31:0] display_data 
+    output [31:0] display_data
 );
 
     reg [31:0] regfile [0:31]; 

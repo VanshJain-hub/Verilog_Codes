@@ -18,9 +18,24 @@ module top_tb;
         #1000 $finish;
     end
     
+    integer k;
     initial begin
         $dumpfile("execute.vcd");
         $dumpvars();
+        $dumpvars(0, DUT.DP1.RF.regfile[0]);
+        $dumpvars(0, DUT.DP1.RF.regfile[1]);
+        $dumpvars(0, DUT.DP1.RF.regfile[2]);
+        $dumpvars(0, DUT.DP1.RF.regfile[3]);
+        $dumpvars(0, DUT.DP1.RF.regfile[4]);
+        $dumpvars(0, DUT.DP1.RF.regfile[5]);
+        $dumpvars(0, DUT.DP1.RF.regfile[6]);
+        $dumpvars(0, DUT.DP1.RF.regfile[7]);
+        $dumpvars(0, DUT.DP1.RF.regfile[8]);
+        $dumpvars(0, DUT.DP1.RF.regfile[9]);
+        $dumpvars(0, DUT.DP1.RF.regfile[10]);
+
     end
+
+
 
 endmodule
