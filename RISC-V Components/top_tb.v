@@ -33,7 +33,13 @@ module top_tb;
         $dumpvars(0, DUT.DP1.RF.regfile[8]);
         $dumpvars(0, DUT.DP1.RF.regfile[9]);
         $dumpvars(0, DUT.DP1.RF.regfile[10]);
-
+        $dumpvars(0, DUT.DP1.RF.regfile[11]);
+        $dumpvars(0, DUT.DP1.RF.regfile[12]);
+        $dumpvars(0, DUT.DP1.RF.regfile[13]);
+        $dumpvars(0, DUT.DP1.RF.regfile[14]);
+        $dumpvars(0, DUT.DP1.RF.regfile[15]);
+        $dumpvars(0, DUT.DP1.RF.regfile[30]);
+        $dumpvars(0, DUT.DP1.RF.regfile[31]);
     end
 
 

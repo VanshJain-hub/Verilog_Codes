@@ -1,18 +1,18 @@
 module datapath(
-    input RegWrite, ALUSrc, PCSrc, RegSrc, 
-    input [1:0] ImmSrc, ResultSrc,
+    input RegWrite, ALUSrc, RegSrc, 
+    input [1:0] ResultSrc, PCSrc,
+    input [2:0] ImmSrc,
     input [3:0] ALUControl,
     input clk, reset,
     input [31:0] RD, //Read Data from DataMem
     input [31:0] Instr,
-    output Zero,
-    output Overflow, Carry, Negative,
+    output Zero, Carry, Referee, 
     output [31:0] PC,
     output [31:0] WD, ALUResult,
     output [31:0] display_data 
 );
 
-    wire [31:0] PCPlus4, PCTarget, ImmExt, PC_Next;
+    wire [31:0] PCPlus4, PCTarget, ImmExt, PC_Next, ALUResult;
     wire [31:0] RD1, RD2;
     wire [31:0] B;
     wire [31:0] Result;
@@ -29,7 +29,7 @@ module datapath(
     //Input is PC, output is PC_Next.
     PC_Plus_4 P1(.PC(PC), .PCPlus4(PCPlus4));
     PC_Target P2(.PC(PC), .ImmExt(ImmExt), .PCTarget(PCTarget));
-    PC_Mux P3(.PCSrc(PCSrc), .PC_Target(PCTarget), .PC_Plus_4(PCPlus4), .PC_Next(PC_Next));
+    PC_Mux P3(.PCSrc(PCSrc), .PC_Target(PCTarget), .PC_Plus_4(PCPlus4), .PC_Next(PC_Next), .ALUResult(ALUResult));
     Sign_Extender SE(.Instr(Instr), .ImmSrc(ImmSrc), .ImmExt(ImmExt));
 
     PC_Reg PC1(.PCNext(PC_Next), .clk(clk), .reset(reset), .PC(PC));
@@ -48,10 +48,10 @@ module datapath(
     ALU_Mux ALM(.WD(RD2), .ImmExt(ImmExt), .ALUSrc(ALUSrc), .B(B));
 
     //ALU
-    ALU AR(.A(RD1), .B(B), .control(ALUControl), .result(ALUResult), .Zero(Zero), .Overflow(Overflow), .Carry(Carry), .Negative(Negative));
-
+    ALU AR(.A(RD1), .B(B), .control(ALUControl), .result(ALUResult), .Zero(Zero), .Carry(Carry), .Referee(Referee));
+    
     //ResultMux
-    Result_Mux RM(.ALUResult(ALUResult), .ReadData(RD), .PC_Plus_4(PCPlus4), .ResultSrc(ResultSrc), .Result(Result));
+    Result_Mux RM(.ALUResult(ALUResult), .ReadData(RD), .PC_Plus_4(PCPlus4), .PC_Target(PCTarget), .ResultSrc(ResultSrc), .Result(Result));
 
 
 endmodule
