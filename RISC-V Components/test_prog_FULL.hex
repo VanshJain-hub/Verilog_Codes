@@ -13,6 +13,8 @@ FF600593
 006000A3
 00104383
 00518463
+00401803
+
 29A00F13
 0040006F
 00100F93
@@ -38,6 +40,8 @@ FF600593
 // sb   x6, 1(x0)       # Store Byte 0xAB at offset 1. 
 //                      # Memory was 0x0000000F. Now it is 0x0000AB0F.
 // lbu  x7, 1(x0)       # Load Byte Unsigned. x7 should be 171 (0xAB).
+// sh   x18, 4(x0)      # Store half Signed. x18 should be 
+// lh   x16, 4(x0)      # Load half Signed. x16 should be 
 // 
 // # --- PART 4: Branch & Jump ---
 // beq  x3, x5, Pass    # 15 == 15? Yes. Jump to Pass.

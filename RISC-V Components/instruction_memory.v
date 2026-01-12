@@ -16,7 +16,7 @@ module Instruction_Memory (
         // mem[8] = 32'h000200b3;
         // mem[9] = 32'h00a0a023;
         // mem[10] = 32'h0000a083;      
-        $readmemh("test_prog_FULL2.hex", mem);
+        $readmemh("test_prog_FULL6.hex", mem);
     end  
 
     assign RD = mem[A[31:2]];
