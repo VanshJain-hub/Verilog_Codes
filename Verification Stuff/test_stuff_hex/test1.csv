@@ -1,0 +1,15 @@
+PC (Addr),Assembly Instruction,Type,Machine Code (Hex),Explanation
+0x00,"addi x1, x0, 10",I,00A00093,"rd=1, imm=10"
+0x04,"addi x2, x0, 20",I,1400113,"rd=2, imm=20"
+0x08,"addi x5, x0, 0",I,293,"rd=5, imm=0"
+0x0C,"add x3, x1, x2",R,002081B3,"rd=3, rs1=1, rs2=2"
+0x10,"sub x4, x2, x1",R,40110233,"rd=4, funct7=0100000 (Sub)"
+0x14,"ori x5, x0, 15",I,00F06293,"rd=5, imm=15, funct3=110"
+0x18,"and x6, x5, x3",R,0032F333,"rd=6, rs1=5, rs2=3"
+0x1C,"sw x3, 0(x0)",S,302023,"rs2=3 (Src), rs1=0 (Addr)"
+0x20,"lw x7, 0(x0)",I,2383,"rd=7, rs1=0 (Addr)"
+0x24,"beq x7, x3, PASS",B,338663,Offset = 12 bytes (PASS is at 0x30)
+0x28,"addi x10, x0, 0",I,513,rd=10 (Fail Flag)
+0x2C,"jal x0, FINISH",J,0080006F,Offset = 8 bytes (FINISH is at 0x34)
+0x30,"PASS: addi x10, x0, 1",I,100513,rd=10 (Success Flag)
+0x34,"FINISH: beq x0, x0, 0",B,63,Infinite Loop (Offset = 0)
